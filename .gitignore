@@ -1,0 +1,22 @@
+# local-only holding pen
+NIEGIT/
+# secrets
+.pg_url
+# python
+__pycache__/
+*.pyc
+# databases / logs / telemetry 
+*.db
+logs/
+telemetry/
+# some checkpoints
+checkpoints/*.pkl
+checkpoints/*.zip
+checkpoints/old before delta fix/
+# throwaway 
+_bc_smoke*.pth
+_diag_bc.py
+*.log
+PSoutput.txt
+fix_dagger_BC.txt
+output konsola*.txt

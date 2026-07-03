@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # S4-F — Neural Racing Agent for TORCS
 
 **Team Overclocked · IBM AI Racing League · Politechnika Świętokrzyska**

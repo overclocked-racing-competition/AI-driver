@@ -1,0 +1,36 @@
+# ── Python ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ── Secrets & local config ──────────────────────────────
+.pg_url
+*.env
+.env
+
+# ── Runtime outputs (regenerated; keep out of git) ──────
+logs/
+telemetry/
+NIEGIT/
+*.db
+*.db-wal
+*.db-shm
+
+# ── Large training checkpoints (keep only the deliverables) ─
+# Tracked by hand: bc_v6.pth, dagger_policy_v2.pth, best_teacher_*.json,
+# residual_sac_latest.zip (the residual submission option).
+checkpoints/*_steps.zip
+checkpoints/*vecnorm*.pkl
+checkpoints/*vecnormalize*.pkl
+checkpoints/*replay_buffer*
+checkpoints/_bc_smoke*.pth
+
+# ── Editor / OS cruft ───────────────────────────────────
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

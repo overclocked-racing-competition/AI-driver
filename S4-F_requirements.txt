@@ -1,0 +1,49 @@
+# S4-F — pinned Python dependencies
+#
+# Usage (from the repository root):
+#
+#   Windows:
+#     python -m venv .venv
+#     .venv\Scripts\activate
+#     pip install -r S4-F_requirements.txt
+#
+#   Linux / WSL:
+#     python3 -m venv .venv
+#     source .venv/bin/activate
+#     pip install -r S4-F_requirements.txt
+#     # CPU-only torch (smaller download) — optional alternative:
+#     #   pip install torch==2.12.1 --index-url https://download.pytorch.org/whl/cpu
+#
+# Versions below are the set this release was verified against
+# (Python 3.12). Newer minor versions are expected to work.
+
+# --- Core numerics ---
+numpy==2.5.0
+
+# --- Deep learning / RL (submission + training) ---
+torch==2.12.1
+stable-baselines3==2.9.0     # SAC implementation (training only)
+gymnasium==1.3.0             # environment API (training only)
+
+# --- Hyperparameter optimisation (teacher search) ---
+optuna==4.9.0
+cmaes==0.13.0                # Optuna CmaEsSampler (refinement mode)
+
+# --- Distributed Optuna storage (optional: shared PostgreSQL) ---
+psycopg2-binary==2.9.12
+SQLAlchemy==2.0.51           # Optuna RDB backend
+
+# --- Training logs ---
+tensorboard==2.21.0
+
+# --- Progress bars ---
+tqdm==4.68.3
+
+# --- TORCS GUI auto-start (Windows only) ---
+pyautogui==0.9.54;   sys_platform == "win32"
+pygetwindow==0.0.9;  sys_platform == "win32"
+
+# --- IBM Granite telemetry analysis (optional; local Ollama backend) ---
+requests==2.34.2
+# Cloud (watsonx) backend instead of Ollama:
+# ibm-watsonx-ai

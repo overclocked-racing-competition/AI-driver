@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # S4-F — Neural Racing Agent for TORCS
 
 **Team Overclocked · IBM AI Racing League · Politechnika Świętokrzyska**
@@ -226,3 +227,6 @@ Project site: see the *R&D* section for milestone write-ups.
 *Developed for the IBM AI Racing League; IBM Granite was used as a
 development-time telemetry-analysis assistant
 ([`tools/granite_analysis.py`](tools/granite_analysis.py)).*
+=======
+# AI-driver
+>>>>>>> 06f6788e0e42c44aee87db6c93b15c2af4b07777

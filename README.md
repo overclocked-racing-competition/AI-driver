@@ -2,6 +2,8 @@
 
 **Team Overclocked · IBM AI Racing League · Politechnika Świętokrzyska**
 
+### 🌐 Official site: **[overclocked.run](https://overclocked.run)**
+
 A neural-network driver for the Corkscrew circuit (Laguna Seca, 3,602 m) in
 [TORCS](http://torcs.sourceforge.net/) via the SCR (Simulated Car Racing) UDP
 protocol at 50 Hz.
@@ -21,12 +23,14 @@ The deliverable — [`checkpoints/bc_v6.pth`](checkpoints/bc_v6.pth), a
 
 ## How it works
 
-The agent is produced by a **teacher–student pipeline** rather than pure
-model-free RL: an analytic racing controller with 54 tunable parameters is
-optimised by a distributed Optuna search (~15,000 headless-TORCS trials),
-then distilled into the network via behavioural cloning and DAgger.
-Soft Actor-Critic is used for from-scratch baselines and for optional
-*residual* fine-tuning of the frozen distilled policy.
+The agent is produced by a **teacher–student pipeline**: an analytic racing
+controller with 54 tunable parameters is optimised by a distributed Optuna
+search (~15,000 headless-TORCS trials), then distilled into the network via
+behavioural cloning and DAgger. Reinforcement learning is a first-class part
+of the result, not just a baseline: a **residual Soft Actor-Critic** policy
+that adds learned corrections on top of the frozen distilled network reaches
+the same **~92 s** standing-start lap. Both agents ship and are selectable in
+`submit_agent.py` — so the result does not rest on imitation learning alone.
 
 ```
 teacher_controller_v6 ──Optuna ×15k──▶ best params ──BC + DAgger──▶ bc_v6.pth
@@ -46,6 +50,10 @@ copycat pathology of behavioural cloning — is documented in:
   reference, specs, pipelines, troubleshooting
 - 📝 **[Experiment log](docs/EXPERIMENT_LOG.md)** — raw chronological
   engineering record
+
+The main docs are bilingual: each has an English and a Polish version
+(`*.pl.md`), plus a PDF of each (`*.pdf`, `*.pl.pdf`) in [`docs/`](docs).
+🇵🇱 Wersja polska dokumentacji: pliki `*.pl.md` w katalogu `docs/`.
 
 ![Best lap speed profile](docs/figures/fig_best_lap_speed.png)
 
@@ -220,12 +228,10 @@ full bibliography in the [case study](docs/case_study.pdf).
 ## Team
 
 **Overclocked** — first-year students, Politechnika Świętokrzyska.
-Contact: hqoverclocked@gmail.com ·
-Project site: see the *R&D* section for milestone write-ups.
+Official site: **[overclocked.run](https://overclocked.run)** (full R&D
+milestones, the interactive case study, and demos) ·
+Contact: hqoverclocked@gmail.com
 
 *Developed for the IBM AI Racing League; IBM Granite was used as a
 development-time telemetry-analysis assistant
 ([`tools/granite_analysis.py`](tools/granite_analysis.py)).*
-=======
-# AI-driver
->>>>>>> 06f6788e0e42c44aee87db6c93b15c2af4b07777
